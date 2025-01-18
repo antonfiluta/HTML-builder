@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 
-const stream = fs.createWriteStream(path.join(__dirname, 'project-dist', 'bundle.css'), { flags: 'a' });
+const stream = fs.createWriteStream(path.join(__dirname, 'project-dist', 'bundle.css'));
 
 fs.readdir(
     path.join(__dirname, 'styles'),
