@@ -13,13 +13,17 @@ const rl = readline.createInterface({
 console.log('Hello! Please enter some text:');
 
 rl.on('line', (inputText) => {
-    fileStream.write(inputText + '\n', (err) => {
-        if (err) {
-            console.error('An error occurred:', err);
-        } else {
-            console.log('Your text has been saved to text.txt, write somthing more');
-        }
-    });
+    if (inputText === 'exit') {
+        rl.close();
+    } else {
+        fileStream.write(inputText + '\n', (err) => {
+            if (err) {
+                console.error('An error occurred:', err);
+            } else {
+                console.log('Your text has been saved to text.txt, write somthing more');
+            }
+        });
+    }
 });
 
 rl.on('close', () => {
